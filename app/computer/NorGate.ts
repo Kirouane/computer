@@ -1,26 +1,26 @@
 import Connector from "./Connector";
-import AndGate from "./AndGate";
-import NotGate from "./NotGate";
 import Gate from "./Gate";
+import NotGate from "./NotGate";
+import OrGate from "./OrGate";
 
-class NandGate extends Gate {
-    private _andGate: AndGate;
+class NorGate extends Gate {
+    private _orGate: OrGate;
     private _notGate: NotGate;
 
     public constructor() {
         super();
-        this._andGate = new AndGate();
+        this._orGate = new OrGate();
         this._notGate = new NotGate();
 
-        this._inputs = this._andGate.inputs
-        this._notGate.connectInputs(this._andGate.outputs)
+        this._inputs = this._orGate.inputs
+        this._notGate.connectInputs(this._orGate.outputs)
         this._outputs = this._notGate.outputs
     }
 
     public connectUpstream(connector: Connector) {
-        this._andGate.connectUpstream(connector)
+        this._orGate.connectUpstream(connector)
         this._notGate.connectUpstream(connector)
     }
 }
 
-export default NandGate;
+export default NorGate;

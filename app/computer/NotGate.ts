@@ -1,40 +1,19 @@
 import Transistor from "./Transistor";
 import Connector from "./Connector";
+import Gate from "./Gate";
 
-class NotGate {
+class NotGate extends Gate {
 
     private transistors: Transistor[] = [new Transistor(true)]
 
-    private _inputs: Connector[] = []
-    private _outputs: Connector[] = []
-
     public constructor() {
+        super();
         this._inputs.push(this.transistors[0].base)
         this._outputs.push(this.transistors[0].emitter)
     }
 
     public connectUpstream(connector: Connector) {
         this.transistors[0].collector.connectUpstream(connector)
-    }
-
-    public connectInputs(connectors: Connector[]) {
-        this._inputs.forEach((input, i) => {
-            input.connectUpstream(connectors[i])
-        })
-    }
-
-    connectOutputs(connectors: Connector[]) {
-        this._outputs.forEach((output, i) => {
-            connectors[i].connectUpstream(output)
-        })
-    }
-
-    public get inputs(): Connector[] {
-        return this._inputs
-    }
-
-    public get outputs(): Connector[] {
-        return this._outputs
     }
 }
 

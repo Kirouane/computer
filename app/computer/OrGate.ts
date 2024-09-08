@@ -1,15 +1,14 @@
 import Connector from "./Connector";
 import Transistor from "./Transistor";
 import transistor from "./Transistor";
+import Gate from "./Gate";
 
-class AndGate {
+class AndGate extends Gate {
 
     private transistors: Transistor[] = [new Transistor(), new Transistor()]
 
-    private _inputs: Connector[] = []
-    private _outputs: Connector[] = []
-
     public constructor() {
+        super();
         this._inputs.push(this.transistors[0].base, this.transistors[1].base)
         const output = new Connector();
         output.connectUpstream(this.transistors[0].emitter)
@@ -20,18 +19,6 @@ class AndGate {
     public connectUpstream(connector: Connector) {
         this.transistors[0].collector.connectUpstream(connector)
         this.transistors[1].collector.connectUpstream(connector)
-    }
-
-    public connectInputs(connectors: Connector[]) {
-        this._inputs.forEach((input, i) => {
-            input.connectUpstream(connectors[i])
-        })
-    }
-
-    connectOutputs(connectors: Connector[]) {
-        this._outputs.forEach((output, i) => {
-            connectors[i].connectUpstream(output)
-        })
     }
 }
 
