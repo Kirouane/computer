@@ -1,6 +1,6 @@
 import Transistor from "./Transistor";
-import Connector from "./Connector";
-import Gate from "./Gate";
+import Connector from "./../Connector";
+import Gate from "./../Gate";
 
 class NotGate extends Gate {
 

@@ -1,14 +1,13 @@
-import Connector from "./Connector";
+import Connector from "./../Connector";
 import OrGate from "./OrGate";
-import XorGate from "./XorGate";
 
-describe('XorGate', () => {
+describe('OrGate', () => {
     it.each([
         [false, false, false],
         [false, true, true],
         [true, false, true],
-        [true, true, false]
-    ])('xor gate %o %o %o', (a, b, expected) => {
+        [true, true, true]
+    ])('or gate %o %o %o', (a, b, expected) => {
         const switchConnector = new Connector('switch');
         switchConnector.turnOn();
 
@@ -18,10 +17,10 @@ describe('XorGate', () => {
         const output = new Connector('output');
 
 
-        const xorGate = new XorGate();
-        xorGate.connectUpstream(switchConnector);
-        xorGate.connectInputs([input1, input2]);
-        xorGate.connectOutputs([output]);
+        const orGate = new OrGate();
+        orGate.connectUpstream(switchConnector);
+        orGate.connectInputs([input1, input2]);
+        orGate.connectOutputs([output]);
 
         input1.state = a;
         input2.state = b;

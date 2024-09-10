@@ -1,7 +1,7 @@
-import Connector from "./Connector";
+import Connector from "./../Connector";
 import AndGate from "./AndGate";
 import NotGate from "./NotGate";
-import Gate from "./Gate";
+import Gate from "./../Gate";
 
 class NandGate extends Gate {
     private _andGate: AndGate;

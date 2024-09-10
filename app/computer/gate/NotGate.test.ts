@@ -1,5 +1,5 @@
 import AndGate from "./AndGate";
-import Connector from "./Connector";
+import Connector from "./../Connector";
 import each from "jest-each";
 import OrGate from "./OrGate";
 import NotGate from "./NotGate";

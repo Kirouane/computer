@@ -1,8 +1,8 @@
-import Gate from "./Gate";
+import Gate from "./../Gate";
 import OrGate from "./OrGate";
 import NandGate from "./NandGate";
 import AndGate from "./AndGate";
-import Connector from "./Connector";
+import Connector from "./../Connector";
 
 class XorGate extends Gate {
     private _orGate: OrGate;

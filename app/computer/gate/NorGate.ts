@@ -1,5 +1,5 @@
-import Connector from "./Connector";
-import Gate from "./Gate";
+import Connector from "./../Connector";
+import Gate from "./../Gate";
 import NotGate from "./NotGate";
 import OrGate from "./OrGate";
 

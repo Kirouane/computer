@@ -1,28 +1,27 @@
 import AndGate from "./AndGate";
-import Connector from "./Connector";
+import Connector from "./../Connector";
 import each from "jest-each";
-import NandGate from "./NandGate";
-import NorGate from "./NorGate";
 
-describe('NorGate', () => {
+describe('AndGate', () => {
     it.each([
-        [false, false, true],
+        [false, false, false],
         [false, true, false],
         [true, false, false],
-        [true, true, false]
+        [true, true, true]
     ])('and gate %o %o %o', (a, b, expected) => {
         const switchConnector = new Connector();
         switchConnector.turnOn();
 
         const input1 = new Connector();
         const input2 = new Connector();
+
         const output = new Connector();
 
 
-        const gate = new NorGate();
-        gate.connectUpstream(switchConnector);
-        gate.connectInputs([input1, input2]);
-        gate.connectOutputs([output]);
+        const andGate = new AndGate();
+        andGate.connectUpstream(switchConnector);
+        andGate.connectInputs([input1, input2]);
+        andGate.connectOutputs([output]);
 
         input1.state = a;
         input2.state = b;
