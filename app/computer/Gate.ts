@@ -1,6 +1,7 @@
 import Connector from "./Connector";
 
 class Gate {
+
     protected _inputs: Connector[] = []
     protected _outputs: Connector[] = []
 

@@ -10,8 +10,6 @@ class Multiplexer2x1Circuit extends Gate {
     private _andGate2: AndGate;
     private _orGate: OrGate;
 
-    private _selectionLines: Connector[] = [];
-
 
     public constructor() {
         super();
@@ -40,6 +38,18 @@ class Multiplexer2x1Circuit extends Gate {
         this._andGate1.connectUpstream(connector)
         this._andGate2.connectUpstream(connector)
         this._orGate.connectUpstream(connector)
+    }
+
+    public get A1(): Connector {
+        return this._inputs[0];
+    }
+
+    public get A0(): Connector {
+        return this._inputs[1];
+    }
+
+    public get S(): Connector {
+        return this._inputs[2];
     }
 
 }

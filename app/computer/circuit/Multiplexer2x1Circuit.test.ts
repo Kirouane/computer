@@ -4,8 +4,17 @@ import Multiplexer2x1Circuit from "./Multiplexer2x1Circuit";
 
 describe('Multiplexer2x1Circuit', () => {
     it.each([
+        [[0, 0], 0, 0],
+        [[0, 0], 1, 0],
+
         [[1, 0], 0, 1],
         [[1, 0], 1, 0],
+
+        [[0, 1], 0, 0],
+        [[0, 1], 1, 1],
+
+        [[1, 1], 0, 1],
+        [[1, 1], 1, 1],
     ])('Multiplexer 2x1 Circuit', (inputValues, selectionLineValue, outputValue) => {
         const switchConnector = new Connector('switch');
         switchConnector.turnOn();
